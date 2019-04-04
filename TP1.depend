@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1554088751 source:/home/alejandro/tposd/TP1/funciones_calcu.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones_calcu.h"
+
+1554068579 /home/alejandro/tposd/TP1/funciones_calcu.h
+
+1554072257 source:/home/alejandro/tposd/TP1/main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones_calcu.h"
+	"funciones.h"
+
+1554086838 source:/home/alejandro/tposd/TP1/funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<stdio_ext.h>
+	"funciones.h"
+
+1554072257 /home/alejandro/tposd/TP1/funciones.h
+
