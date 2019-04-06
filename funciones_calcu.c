@@ -60,7 +60,8 @@ int factorialDeUnNumero(int val1, long int *resultado)
 
 int mostrarMenuCalculadora (int a, int b)
 {
-    system("clear");
+    //system("clear");
+    limpiarPantalla();
     printf("1. Ingresar 1er operando (A=%d) \n2. Ingresar 2do operando (B=%d) \n3. Calcular todas las operaciones \n4. Informar resultados \n5. Salir\n",a,b);
     return 0;
 }
@@ -80,6 +81,24 @@ int informarResultados(int suma, int resta, float division,int divisionError, in
     return 0;
 }
 
+void limpiarPantalla (void)
+{
+    #ifdef _LINUX_
+    system("clear");
+    #endif
+    #ifdef linux
+    system ("clear");
+    #endif
+    #ifdef WIN32
+    clearsc(); system("cls");
+    #endif
+    #ifdef LINUX
+    clearsc(); system ("clear");
+    #else
+    system("cls");
+    #endif
+
+}
 
 
 

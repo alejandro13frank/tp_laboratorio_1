@@ -34,5 +34,7 @@ int informarResultados(int suma, int resta, float division, int divisionError, i
 
 /*imprime por pantalla los resultados de las operaciones de la calculadora*/
 
+void limpiarPantalla (void);
+/*Limpia la consola*/
 
 #endif // FUNCIONES_CALCU_H_INCLUDED
