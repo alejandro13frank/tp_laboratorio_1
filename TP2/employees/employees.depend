@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1557543029 source:/home/alejandro/ENTREGAStps/tp2/employee.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"employee.h"
+
+1557539503 /home/alejandro/ENTREGAStps/tp2/utn.h
+
+1557543029 /home/alejandro/ENTREGAStps/tp2/employee.h
+
+1557543294 source:/home/alejandro/ENTREGAStps/tp2/employees/main.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"employee.h"
+
+1557539418 /home/alejandro/ENTREGAStps/tp2/employees/utn.h
+
+1557543029 /home/alejandro/ENTREGAStps/tp2/employees/employee.h
+
+1557531922 source:/home/alejandro/ENTREGAStps/tp2/utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+
