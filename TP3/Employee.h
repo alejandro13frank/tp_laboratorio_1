@@ -35,4 +35,5 @@ int employee_getSueldo(Employee* this,int* sueldo);
 int employee_setSueldoStr(Employee* this,char* sueldo);
 
 int employee_printNode(Employee *this);
+int employee_comparaNombre(void *this,void *that);
 #endif // employee_H_INCLUDED

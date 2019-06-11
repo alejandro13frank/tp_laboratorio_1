@@ -197,6 +197,24 @@ int employee_printNode(Employee *this)
     return retorno;
 }
 
+int employee_comparaNombre(void *this,void *that)
+{
+    int retorno;
+    int comparacion = strcmp(((Employee*)this)->nombre,((Employee*)that)->nombre);
+    if (comparacion<0)
+    {
+        retorno=1;
+    }
+    else if (comparacion>0)
+    {
+        retorno=-1;
+    }
+    else
+    {
+        retorno=0;
+    }
+    return retorno;
+}
 
 
 

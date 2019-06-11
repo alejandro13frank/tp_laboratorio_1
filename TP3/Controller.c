@@ -164,7 +164,7 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
     if(pArrayListEmployee!=NULL)
     {
         controller_ListEmployee(pArrayListEmployee);
-        utn_getUnsignedInt("\nID a eliminar: ","\nError",1,sizeof(int),0,30000,1,&id);
+        utn_getUnsignedInt("\nID a eliminar: ","\nError",1,6,0,30000,1,&id);
         bufferIdNode=controller_searchIdEmployee(pArrayListEmployee,id);
         if(bufferIdNode==-1)
         {
@@ -216,30 +216,9 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
 int controller_sortEmployee(LinkedList* pArrayListEmployee)
 {
     int retorno=-1;
-    int i;
-    int j;
-    int lenLista;
-    char bufferNombreA[128];
-    char bufferNombreB[128];
-    Employee *bufferEmployeeA;
-    Employee *bufferEmployeeB;
-    if(pArrayListEmployee!=NULL && ll_len(pArrayListEmployee)>0)
+    if (pArrayListEmployee!=NULL)
     {
-        lenLista=ll_len(pArrayListEmployee);
-        for (i = 1; i < lenLista; i++)
-        {
-            bufferEmployeeA=ll_get(pArrayListEmployee,i);
-            j = i - 1;
-            employee_getNombre(bufferEmployeeA,bufferNombreA);
-            bufferEmployeeB=ll_get(pArrayListEmployee,j);
-            employee_getNombre(bufferEmployeeB,bufferNombreB);
-            while ((j >= 0) && strcmp(bufferNombreA,bufferNombreB)<0)
-            {
-                ll_set(pArrayListEmployee,j+1,bufferEmployeeB);
-                j--;
-            }
-            ll_set(pArrayListEmployee,j+1,bufferEmployeeA);
-        }
+        ll_sort(pArrayListEmployee,employee_comparaNombre,1);
         retorno=0;
     }
     return retorno;
