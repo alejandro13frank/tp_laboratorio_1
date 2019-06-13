@@ -52,6 +52,33 @@ int getString(char* msg, char* msgError, int min, int max, int* reintentos, char
     }
     return retorno;
 }
+int utn_getString(char* msg, char* msgError, int min, int max, int reintentos, char* resultado)
+{
+    int retorno=-1;
+    char bufferStr[max+10];
+
+    if(msg!=NULL && msgError!=NULL && min<=max && reintentos>=0 && resultado!=NULL)
+    {
+        do
+        {
+            printf("%s",msg);   //no poner salto de linea, se va a pasar en el mensaje por valor
+            fflush(stdin);
+            fgets(bufferStr,sizeof(bufferStr),stdin);
+            bufferStr[strlen(bufferStr)-1]='\0';
+
+            if(strlen(bufferStr)>=min && strlen(bufferStr)<max)    // tamaño (max) =cantidad de elementos (strlen) + 1(\0)
+            {
+                strncpy(resultado,bufferStr,max);
+                retorno=0;
+                break;
+            }
+            printf("%s 1",msgError);
+            reintentos--;
+        }
+        while(reintentos>=0);
+    }
+    return retorno;
+}
 //------------------------------
 int utn_getName(char* msg, char* msgError, int min, int max, int reintentos, char* resultado)
 {
@@ -88,7 +115,9 @@ int isValidName(char* stringRecibido)   //si fuera un numero podrìa necesitar p
     int i;
     for(i=0;stringRecibido[i]!='\0';i++)
     {
-        if(stringRecibido[i]<'A' || (stringRecibido[i]>'Z' && stringRecibido[i]<'a') || stringRecibido[i]>'z')// o ((stringRecibido[i]<'A' || (stringRecibido[i]>'Z') && (stringRecibido[i]<'a' || stringRecibido[i]>'z'))
+        if((stringRecibido[i]<'A' && stringRecibido[i]!=' ' && stringRecibido[i]!='-') ||
+           (stringRecibido[i]>'Z' && stringRecibido[i]<'a') ||
+           stringRecibido[i]>'z')// o ((stringRecibido[i]<'A' || (stringRecibido[i]>'Z') && (stringRecibido[i]<'a' || stringRecibido[i]>'z'))
         {
             retorno=0;
             break;
