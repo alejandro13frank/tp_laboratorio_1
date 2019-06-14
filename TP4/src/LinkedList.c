@@ -3,9 +3,60 @@
 #include <string.h>
 #include "../inc/LinkedList.h"
 
-
 static Node* getNode(LinkedList* this, int nodeIndex);
 static int addNode(LinkedList* this, int nodeIndex,void* pElement);
+
+int ll_iterFinishIter(IterNode* nodeIter)
+{
+    int returnAux=-1;
+    if (nodeIter!=NULL)
+    {
+        free(nodeIter);
+        returnAux=0;
+    }
+    return returnAux;
+}
+
+IterNode* ll_iterInit(LinkedList* this)
+{
+    IterNode * returnAux=NULL;
+    IterNode* nodeIter;
+    if(this!=NULL)
+    {
+        nodeIter=(IterNode*)malloc(sizeof(IterNode));
+        if(nodeIter!=NULL)
+        {
+            nodeIter->nodeActual=this->pFirstNode;
+            returnAux=nodeIter;
+        }
+    }
+    return returnAux;
+}
+
+int ll_iterEnd(IterNode* nodeIter)
+{
+    int returnAux=-1;
+    if (nodeIter->nodeActual!=NULL)
+    {
+        returnAux=0;
+    }
+    else
+    {
+        returnAux=1;
+    }
+    return returnAux;
+}
+
+void* ll_iterNext(IterNode* nodeIter)
+{
+    void* returnAux=NULL;
+    if (!ll_iterEnd(nodeIter))
+    {
+        returnAux=nodeIter->nodeActual->pElement;
+        nodeIter->nodeActual=nodeIter->nodeActual->pNextNode;
+    }
+    return returnAux;
+}
 
 /** \brief Crea un nuevo LinkedList en memoria de manera dinamica
  *

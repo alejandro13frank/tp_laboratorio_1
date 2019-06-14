@@ -16,17 +16,19 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "../testing/inc/main_test.h"
 #include "../inc/LinkedList.h"
 
-
+#include "../testing/inc/Employee.h"
+int i;
+void* buffer;
+Employee* empleado;
 int main(void)
 {
-        startTesting(1);  // ll_newLinkedList
+        /*startTesting(1);  // ll_newLinkedList
         startTesting(2);  // ll_len
         startTesting(3);  // getNode - test_getNode
         startTesting(4);  // addNode - test_addNode
@@ -44,7 +46,19 @@ int main(void)
         startTesting(16); // ll_containsAll
         startTesting(17); // ll_subList
         startTesting(18); // ll_clone
-        startTesting(19); // ll_sort
+        startTesting(19); // ll_sort*/
+        LinkedList * list=ll_newLinkedList();
+        for(i=0; i < 20; i++)
+        {
+            ll_add(list,newEmployee(i,"gato","macri",i,i));
+        }
+        IterNode* newIter=ll_iterInit(list);
+        while(!ll_iterEnd(newIter))
+        {
+           empleado=(Employee*)ll_iterNext(newIter);
+           printf("\n ID: %s",empleado->lastName);
+        }
+        ll_iterFinishIter(newIter);
 
     return 0;
 }

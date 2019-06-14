@@ -29,6 +29,11 @@ struct LinkedList
     Node* pFirstNode;
     int size;
 }typedef LinkedList;
+
+struct IterNode
+{
+    Node* nodeActual;
+}typedef IterNode;
 #endif
 
 
@@ -53,3 +58,8 @@ int ll_containsAll(LinkedList* this,LinkedList* this2);
 LinkedList* ll_subList(LinkedList* this,int from,int to);
 LinkedList* ll_clone(LinkedList* this);
 int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order);
+//---------------
+IterNode* ll_iterInit(LinkedList* this);
+void* ll_iterNext(IterNode* nodeIter);
+int ll_iterEnd(IterNode* nodeIter);
+int ll_iterFinishIter(IterNode* nodeIter);
