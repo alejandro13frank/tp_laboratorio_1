@@ -550,10 +550,14 @@ LinkedList* ll_subList(LinkedList* this,int from,int to)
         cloneArray=ll_newLinkedList();
         if (cloneArray!=NULL)
         {
-            for(i=from;i<to;i++)
+            pAuxNode=this->pFirstNode;
+            for(i=0;i<to;i++)
             {
-                pAuxNode=getNode(this,i);
-                addNode(cloneArray,i,pAuxNode->pElement);
+                if (i>=from)
+                {
+                    addNode(cloneArray,i,pAuxNode->pElement);
+                }
+                pAuxNode=pAuxNode->pNextNode;
             }
         }
     }
